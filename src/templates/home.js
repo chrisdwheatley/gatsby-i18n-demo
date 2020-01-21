@@ -22,7 +22,7 @@ const Article = (props) => {
         const articlePath = `/${articles[art].id}-${articles[art].slug}`
 
         return (
-          <div style={{
+          <div key={articlePath} style={{
             margin: `0 auto`,
             maxWidth: 960,
             padding: `1.45rem 1.0875rem`,
