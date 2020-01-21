@@ -2,13 +2,14 @@ exports.createPages = async function ({ actions, graphql }) {
   const { createPage } = actions
 
   const { data: localeData } = await graphql(`
-    query MyQuery {
+    query Locales {
       site {
         siteMetadata {
           locales {
             default
             path
-            locale
+            locale,
+            title
           }
         }
       }
@@ -19,7 +20,7 @@ exports.createPages = async function ({ actions, graphql }) {
 
   Object.keys(locales).map(async lang => {
     const { data: articleData } = await graphql(`
-    query MyQuery {
+    query Articles {
       site {
         siteMetadata {
           ${locales[lang].path} {
@@ -46,12 +47,23 @@ exports.createPages = async function ({ actions, graphql }) {
           : `${locales[lang].path}/${articlePath}`,
         context: {
           locale: locales[lang],
+          locales: locales,
           article: articles[article]
         },
       })
     })
 
-    return null
+    return createPage({
+      component: require.resolve(`./src/templates/home.js`),
+      path: locales[lang].default
+        ? '/'
+        : locales[lang].path,
+      context: {
+        locale: locales[lang],
+        locales: locales,
+        articles: articles
+      },
+    })
   })
 
 }

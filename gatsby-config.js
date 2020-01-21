@@ -9,10 +9,12 @@ module.exports = {
         default: true,
         path: `en`,
         locale: `en-US`,
+        title: 'English'
       },
       {
         path: `de`,
         locale: `de-DE`,
+        title: 'German'
       }
     ],
     en: {

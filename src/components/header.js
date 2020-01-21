@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, locale, locales, path }) => (
   <header
     style={{
       background: `rebeccapurple`,
@@ -18,7 +18,7 @@ const Header = ({ siteTitle }) => (
     >
       <h1 style={{ margin: 0 }}>
         <Link
-          to="/"
+          to={locale.default ? '/' : `/${locale.path}`}
           style={{
             color: `white`,
             textDecoration: `none`,
@@ -27,6 +27,9 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      {locales && Object.keys(locales).map(loc => (
+        <Link key={loc} style={{ color: 'white', marginRight: '1rem', fontWeight: locales[loc].path === locale.path && 'bold' }} to={locales[loc].default ? '/' : `/${locales[loc].path}`}>{locales[loc].title}</Link>
+      ))}
     </div>
   </header>
 )
