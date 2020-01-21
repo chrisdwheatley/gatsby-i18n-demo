@@ -3,6 +3,44 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    // this would all be coming from a different source but in the interest of testing quickly and easily sticking some dummy data in the siteMetadata object is quick and easy
+    locales: [
+      {
+        default: true,
+        path: `en`,
+        locale: `en-US`,
+      },
+      {
+        path: `de`,
+        locale: `de-DE`,
+      }
+    ],
+    en: {
+      articles: [
+        {
+          id: 123,
+          slug: 'article-slug',
+          title: 'Article Title'
+        }, {
+          id: 456,
+          slug: 'article-slug-2',
+          title: 'Article Title 2'
+        }
+      ]
+    },
+    de: {
+      articles: [
+        {
+          id: 123,
+          slug: 'artikel-schnecke',
+          title: 'Artikelüberschrift'
+        }, {
+          id: 456,
+          slug: 'artikel-schnecke-2',
+          title: 'Artikelüberschrift 2'
+        }
+      ]
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
