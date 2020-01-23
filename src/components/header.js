@@ -1,6 +1,8 @@
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+
+import LocaleChecker from './locale-checker'
 
 const Header = ({ siteTitle, locale, locales, path }) => (
   <header
@@ -28,8 +30,9 @@ const Header = ({ siteTitle, locale, locales, path }) => (
         </Link>
       </h1>
       {locales && Object.keys(locales).map(loc => (
-        <Link key={loc} style={{ color: 'white', marginRight: '1rem', fontWeight: locales[loc].path === locale.path && 'bold' }} to={locales[loc].default ? '/' : `/${locales[loc].path}`}>{locales[loc].title}</Link>
+        <Link key={loc} style={{ color: 'white', marginRight: '1rem', fontWeight: locales[loc].path === locale.path && 'bold' }} to={locales[loc].default ? '/' : `/${locales[loc].path}`}>{locales[loc].flag} {locales[loc].title}</Link>
       ))}
+      <LocaleChecker locale={locale} locales={locales} path={path} />
     </div>
   </header>
 )

@@ -9,12 +9,15 @@ module.exports = {
         default: true,
         path: `en`,
         locale: `en-US`,
-        title: 'English'
+        title: 'English',
+        flag: '🇬🇧'
       },
       {
         path: `de`,
         locale: `de-DE`,
-        title: 'German'
+        title: 'German',
+        flag: '🇩🇪'
+
       }
     ],
     en: {
@@ -22,11 +25,11 @@ module.exports = {
         {
           id: 123,
           slug: 'article-slug',
-          title: 'Article Title'
+          title: 'Article Title',
         }, {
           id: 456,
           slug: 'article-slug-2',
-          title: 'Article Title 2'
+          title: 'Article Title 2',
         }
       ]
     },

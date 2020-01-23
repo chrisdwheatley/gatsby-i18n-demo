@@ -9,7 +9,8 @@ exports.createPages = async function ({ actions, graphql }) {
             default
             path
             locale,
-            title
+            title,
+            flag
           }
         }
       }
