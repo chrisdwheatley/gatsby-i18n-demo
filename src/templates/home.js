@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import "../components/layout.css"
 
 const Article = (props) => {
   const data = useStaticQuery(graphql`
