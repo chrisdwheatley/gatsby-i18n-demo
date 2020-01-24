@@ -1,6 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "../components/header"
+import Footer from "../components/footer"
+import "../components/layout.css"
 
 const Article = (props) => {
   const data = useStaticQuery(graphql`
@@ -23,6 +25,7 @@ const Article = (props) => {
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
       }}><h1>{article.title}</h1></div>
+      <Footer locale={locale} locales={locales} path={path} />
     </>
   )
 }

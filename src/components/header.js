@@ -29,9 +29,6 @@ const Header = ({ siteTitle, locale, locales, path }) => (
           {siteTitle}
         </Link>
       </h1>
-      {locales && Object.keys(locales).map(loc => (
-        <Link key={loc} style={{ color: 'white', marginRight: '1rem', fontWeight: locales[loc].path === locale.path && 'bold' }} to={locales[loc].default ? '/' : `/${locales[loc].path}`}>{locales[loc].flag} {locales[loc].title}</Link>
-      ))}
       <LocaleChecker locale={locale} locales={locales} path={path} />
     </div>
   </header>
